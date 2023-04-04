@@ -18,7 +18,7 @@ const DashboardRoutes = () => {
           <Route path="/dc" element={<DcScreen />} />
           <Route path="/search" element={<SearchScreen />} />
 
-          {/* <Route path="*" element={<Navigate to="/marvel" />} /> */}
+          <Route path="*" element={<Navigate to="/marvel" />} />
         </Routes>
       </div>
     </>
