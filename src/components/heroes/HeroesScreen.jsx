@@ -1,9 +1,15 @@
 import React, { useMemo } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
+
 const HeroesScreen = () => {
   const { heroeId } = useParams();
   const hero = useMemo(() => getHeroById(heroeId), [heroeId]);
+
+  const heroImg = new URL("../../../public/assets/heroes", import.meta.url)
+    .href;
+
+  console.log();
 
   const navigate = useNavigate();
 
@@ -28,7 +34,7 @@ const HeroesScreen = () => {
       <div className="row my-2">
         <div className="col-4">
           <img
-            src={`/src/components/heroes/assets/heroes/${heroeId}.jpg`}
+            src={`${heroImg}/${heroeId}.jpg`}
             alt={hero.superhero}
             className="img-thumbnail animate__animated animate__fadeInLeft"
           />

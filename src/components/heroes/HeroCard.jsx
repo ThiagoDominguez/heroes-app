@@ -9,13 +9,17 @@ export const HeroCard = ({
   first_appearance,
   characters,
 }) => {
+  const heroImg = new URL("../../../public/assets/heroes", import.meta.url)
+    .href;
+
   return (
     <div className="card mb-1" style={{ maxWidth: "540px" }}>
       <div className="row g-0">
         <div className="col-md-4">
           <img
             // src={`/src/components/heroes/assets/heroes/${id}.jpg`}
-            src={`/public/assets/heroes/${id}.jpg`}
+            // src={`../../../public/assets/heroes/${id}.jpg`}
+            src={`${heroImg}/${id}.jpg`}
             className="img-card-top  w-100"
             alt={superhero}
           />
