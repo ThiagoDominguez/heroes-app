@@ -1,5 +1,10 @@
 import React, { useMemo } from "react";
-import { useParams, Navigate, useNavigate } from "react-router-dom";
+import {
+  useParams,
+  Navigate,
+  useNavigate,
+  generatePath,
+} from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
 
 const HeroesScreen = () => {
@@ -8,6 +13,11 @@ const HeroesScreen = () => {
 
   const heroImg = new URL("../../../public/assets/heroes", import.meta.url)
     .href;
+
+  const path = generatePath("../../../public/assets/heroes/*", {
+    type: "img",
+    "*": `${heroeId}.jpg`,
+  });
 
   console.log();
 
@@ -34,7 +44,7 @@ const HeroesScreen = () => {
       <div className="row my-2">
         <div className="col-4">
           <img
-            src={`${heroImg}/${heroeId}.jpg`}
+            src={path}
             alt={hero.superhero}
             className="img-thumbnail animate__animated animate__fadeInLeft"
           />

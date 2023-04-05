@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, generatePath } from "react-router-dom";
 
 export const HeroCard = ({
   id,
@@ -11,6 +11,10 @@ export const HeroCard = ({
 }) => {
   const heroImg = new URL("../../../public/assets/heroes", import.meta.url)
     .href;
+  const path = generatePath("../../../public/assets/heroes/*", {
+    type: "img",
+    "*": `${id}.jpg`,
+  });
 
   return (
     <div className="card mb-1" style={{ maxWidth: "540px" }}>
@@ -19,7 +23,7 @@ export const HeroCard = ({
           <img
             // src={`/src/components/heroes/assets/heroes/${id}.jpg`}
             // src={`../../../public/assets/heroes/${id}.jpg`}
-            src={`${heroImg}/${id}.jpg`}
+            src={path}
             className="img-card-top  w-100"
             alt={superhero}
           />
