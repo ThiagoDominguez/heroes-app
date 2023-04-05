@@ -16,7 +16,7 @@ const HeroesScreen = () => {
   // );
 
   const path = generatePath(":type/assets/heroes/*", {
-    type: "public",
+    type: "dist",
     "*": `${heroeId}.jpg`,
   });
 
