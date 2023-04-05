@@ -1,36 +1,43 @@
-import { Link, NavLink } from "react-router-dom";
-import SearchScreen from "../search/SearchScreen";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark ">
-      <Link className="navbar-brand" to="/">
-        HeroesApp
-      </Link>
-
       <div className="navbar-collapse">
         <div className="navbar-nav">
-          <NavLink className="nav-item nav-link" to="/marvel">
-            Marvel
-          </NavLink>
-
-          <NavLink className="nav-item nav-link" to="/dc">
-            DC
-          </NavLink>
-          <NavLink className="nav-item nav-link" to="/search">
-            Search
-          </NavLink>
-          <div className="navbar-collapse  w-100 order-3 dual-collapse2">
-            <ul className="navbar-nav ml-auto">
-              <NavLink className="nav-item nav-link" to="/login">
-                Logout
+          {routes.map(({ to, text }) => {
+            return (
+              <NavLink key={text} className="nav-item nav-link " to={to}>
+                {text}
               </NavLink>
-            </ul>
-          </div>
+            );
+          })}
         </div>
       </div>
     </nav>
   );
 };
+const routes = [];
+
+routes.push({
+  to: "/",
+  text: "HeroesApp",
+});
+routes.push({
+  to: "/dc",
+  text: "DC",
+});
+routes.push({
+  to: "/marvel",
+  text: "Marvel",
+});
+routes.push({
+  to: "/search",
+  text: "Search",
+});
+routes.push({
+  to: "/login",
+  text: "Logout",
+});
 
 export default Navbar;

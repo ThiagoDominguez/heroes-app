@@ -1,24 +1,23 @@
-import React, { useMemo } from "react";
-import { useParams, Navigate, useNavigate } from "react-router-dom";
+import React, { useMemo, useState } from "react";
+import {
+  useParams,
+  Navigate,
+  useNavigate,
+  useResolvedPath,
+} from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
 
 const HeroesScreen = () => {
   const { heroeId } = useParams();
   const hero = useMemo(() => getHeroById(heroeId), [heroeId]);
+  const resolvedPath = useResolvedPath(
+    `../../../public/assets/heroes/${heroeId}.jpg`
+  );
+  const [image, setImage] = useState(
+    `../../../public/assets/heroes/${heroeId}.jpg`
+  );
 
-  // const heroImg = new URL("../../../public/assets/heroes", import.meta.url)
-  //   .href;
-
-  function getImageUrl(heroeId) {
-    return new URL(
-      `../../../public/assets/heroes/${heroeId}.jpg`,
-      import.meta.url
-    ).pathname;
-  }
-
-  const heroImg = getImageUrl(heroeId);
-
-  console.log(heroImg);
+  console.log(resolvedPath);
   const navigate = useNavigate();
 
   if (!hero) {
@@ -42,7 +41,7 @@ const HeroesScreen = () => {
       <div className="row my-2">
         <div className="col-4">
           <img
-            src={heroImg}
+            src={resolvedPath.pathname}
             alt={hero.superhero}
             className="img-thumbnail animate__animated animate__fadeInLeft"
           />
