@@ -6,11 +6,19 @@ const HeroesScreen = () => {
   const { heroeId } = useParams();
   const hero = useMemo(() => getHeroById(heroeId), [heroeId]);
 
-  const heroImg = new URL("../../../public/assets/heroes", import.meta.url)
-    .href;
+  // const heroImg = new URL("../../../public/assets/heroes", import.meta.url)
+  //   .href;
 
-  console.log();
+  function getImageUrl(heroeId) {
+    return new URL(
+      `../../../public/assets/heroes/${heroeId}.jpg`,
+      import.meta.url
+    ).pathname;
+  }
 
+  const heroImg = getImageUrl(heroeId);
+
+  console.log(heroImg);
   const navigate = useNavigate();
 
   if (!hero) {
@@ -34,7 +42,7 @@ const HeroesScreen = () => {
       <div className="row my-2">
         <div className="col-4">
           <img
-            src={`${heroImg}/${heroeId}.jpg`}
+            src={heroImg}
             alt={hero.superhero}
             className="img-thumbnail animate__animated animate__fadeInLeft"
           />

@@ -9,8 +9,15 @@ export const HeroCard = ({
   first_appearance,
   characters,
 }) => {
-  const heroImg = new URL("../../../public/assets/heroes", import.meta.url)
-    .href;
+  // const heroImg = new URL("../../../public/assets/heroes", import.meta.url).href;
+  // const heroImg = import("../../../public/assets/heroes");
+
+  function getImageUrl(id) {
+    return new URL(`../../../public/assets/heroes/${id}.jpg`, import.meta.url)
+      .href;
+  }
+
+  const heroImg = getImageUrl(id);
 
   return (
     <div className="card mb-1" style={{ maxWidth: "540px" }}>
@@ -19,7 +26,7 @@ export const HeroCard = ({
           <img
             // src={`/src/components/heroes/assets/heroes/${id}.jpg`}
             // src={`../../../public/assets/heroes/${id}.jpg`}
-            src={`${heroImg}/${id}.jpg`}
+            src={heroImg}
             className="img-card-top  w-100"
             alt={superhero}
           />
