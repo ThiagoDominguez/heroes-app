@@ -13,7 +13,7 @@ export const HeroCard = ({
   //   `../../../public/assets/heroes/${id}.jpg`
   // );
 
-  const path = generatePath("../../../public/assets/heroes/*", {
+  const path = generatePath("/assets/heroes/*", {
     type: "img",
     "*": `${id}.jpg`,
   });
