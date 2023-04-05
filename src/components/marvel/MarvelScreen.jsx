@@ -4,7 +4,7 @@ import "animate.css";
 
 const MarvelScreen = () => {
   return (
-    <div className="container  animate__animated animate__fadeInRightBig">
+    <div className="container  animate__animated animate__fadeInLeftBig">
       <h1>Marvel Heroes</h1>
       <hr />
       <HeroesList publisher={"Marvel Comics"} />

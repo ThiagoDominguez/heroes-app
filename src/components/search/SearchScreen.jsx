@@ -38,6 +38,7 @@ const SearchScreen = () => {
               type="text"
               placeholder="Find your hero"
               className="form-control"
+              autoComplete="off"
               name="find"
               value={find}
               onChange={handleInputChange}

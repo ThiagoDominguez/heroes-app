@@ -15,7 +15,7 @@ export const HeroCard = ({
   });
 
   return (
-    <div className="card mb-1" style={{ maxWidth: "540px" }}>
+    <div className=" card mb-1" style={{ maxWidth: "540px" }}>
       <div className="row g-0">
         <div className="col-md-4 col-sm-2">
           <img src={path} className="img-card-top  w-100" alt={superhero} />
