@@ -15,8 +15,8 @@ const HeroesScreen = () => {
   //   `../../../public/assets/heroes/${heroeId}.jpg`
   // );
 
-  const path = generatePath(":type/assets/heroes/*", {
-    type: "docs",
+  const path = generatePath(":type/heroes/*", {
+    type: "assets",
     "*": `${heroeId}.jpg`,
   });
 
