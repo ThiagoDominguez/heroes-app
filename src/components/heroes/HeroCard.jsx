@@ -20,7 +20,7 @@ export const HeroCard = ({
         <div className="col-md-4 col-sm-2">
           <img src={path} className="img-card-top  w-100" alt={superhero} />
         </div>
-        <div className="col-md-8">
+        <div className="col-md-8 col-sm-4">
           <div className="card-body">
             <h5 className="card-title">{superhero}</h5>
             <p className="card-text">{alter_ego}</p>

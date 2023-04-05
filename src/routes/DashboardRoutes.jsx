@@ -12,7 +12,7 @@ const DashboardRoutes = () => {
   return (
     <>
       <Navbar />
-      <div>
+      <div className="container-sm-1">
         <Routes>
           <Route path="/marvel" element={<MarvelScreen />} />
           <Route path="/hero/:heroeId" element={<HeroesScreen />} />
