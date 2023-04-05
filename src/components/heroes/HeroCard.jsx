@@ -9,11 +9,7 @@ export const HeroCard = ({
   first_appearance,
   characters,
 }) => {
-  // const resolvedPath = useResolvedPath(
-  //   `../../../public/assets/heroes/${id}.jpg`
-  // );
-
-  const path = generatePath("/:type/heroes/*", {
+  const path = generatePath(":type/heroes/*", {
     type: "assets",
     "*": `${id}.jpg`,
   });
@@ -21,14 +17,8 @@ export const HeroCard = ({
   return (
     <div className="card mb-1" style={{ maxWidth: "540px" }}>
       <div className="row g-0">
-        <div className="col-md-4">
-          <img
-            // src={`/src/components/heroes/assets/heroes/${id}.jpg`}
-            // src={`../../../public/assets/heroes/${id}.jpg`}
-            src={path}
-            className="img-card-top  w-100"
-            alt={superhero}
-          />
+        <div className="col-md-4 col-sm-2">
+          <img src={path} className="img-card-top  w-100" alt={superhero} />
         </div>
         <div className="col-md-8">
           <div className="card-body">

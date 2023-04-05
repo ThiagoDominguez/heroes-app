@@ -15,7 +15,7 @@ const HeroesScreen = () => {
   //   `../../../public/assets/heroes/${heroeId}.jpg`
   // );
 
-  const path = generatePath(":type/heroes/*", {
+  const path = generatePath("/:type/heroes/*", {
     type: "assets",
     "*": `${heroeId}.jpg`,
   });
@@ -63,12 +63,14 @@ const HeroesScreen = () => {
               <b>First appearance: </b>
               {hero.first_appearance}
             </li>
+            <li className="list-group-item">
+              <b>Characters: </b>
+              {hero.characters}
+            </li>
+            <button className="btn btn-outline-info" onClick={handleReturn}>
+              Return
+            </button>
           </ul>
-          <h5 className="card-title">Characters</h5>
-          <p className="card-text">{hero.characters}</p>
-          <button className="btn btn-outline-info" onClick={handleReturn}>
-            Return
-          </button>
         </div>
       </div>
     </div>
