@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useResolvedPath } from "react-router-dom";
+import { Link, useResolvedPath, generatePath } from "react-router-dom";
 
 export const HeroCard = ({
   id,
@@ -9,9 +9,14 @@ export const HeroCard = ({
   first_appearance,
   characters,
 }) => {
-  const resolvedPath = useResolvedPath(
-    `../../../public/assets/heroes/${id}.jpg`
-  );
+  // const resolvedPath = useResolvedPath(
+  //   `../../../public/assets/heroes/${id}.jpg`
+  // );
+
+  const path = generatePath("../../../public/assets/heroes/*", {
+    type: "img",
+    "*": `${id}.jpg`,
+  });
 
   return (
     <div className="card mb-1" style={{ maxWidth: "540px" }}>
@@ -20,7 +25,7 @@ export const HeroCard = ({
           <img
             // src={`/src/components/heroes/assets/heroes/${id}.jpg`}
             // src={`../../../public/assets/heroes/${id}.jpg`}
-            src={resolvedPath.pathname}
+            src={path}
             className="img-card-top  w-100"
             alt={superhero}
           />

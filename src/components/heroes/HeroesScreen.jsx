@@ -4,20 +4,22 @@ import {
   Navigate,
   useNavigate,
   useResolvedPath,
+  generatePath,
 } from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
 
 const HeroesScreen = () => {
   const { heroeId } = useParams();
   const hero = useMemo(() => getHeroById(heroeId), [heroeId]);
-  const resolvedPath = useResolvedPath(
-    `../../../public/assets/heroes/${heroeId}.jpg`
-  );
-  const [image, setImage] = useState(
-    `../../../public/assets/heroes/${heroeId}.jpg`
-  );
+  // const resolvedPath = useResolvedPath(
+  //   `../../../public/assets/heroes/${heroeId}.jpg`
+  // );
 
-  console.log(resolvedPath);
+  const path = generatePath("../../../public/assets/heroes/*", {
+    type: "img",
+    "*": `${heroeId}.jpg`,
+  });
+
   const navigate = useNavigate();
 
   if (!hero) {
@@ -41,7 +43,7 @@ const HeroesScreen = () => {
       <div className="row my-2">
         <div className="col-4">
           <img
-            src={resolvedPath.pathname}
+            src={path}
             alt={hero.superhero}
             className="img-thumbnail animate__animated animate__fadeInLeft"
           />
